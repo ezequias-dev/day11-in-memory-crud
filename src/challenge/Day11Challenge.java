@@ -140,8 +140,7 @@ public class Day11Challenge {
 
                 System.out.print("Enter an ID: ");
                 int targetId = scanner.nextInt();
-
-                System.out.println();
+                scanner.nextLine();
 
                 UserRecord userToRemove = null;
 
@@ -156,16 +155,16 @@ public class Day11Challenge {
                     users.remove(userToRemove);
                     System.out.println("User removed successfully.");
                 } else {
-                    System.out.println("ID not found!");
+                    System.out.println("User id not found.");
                 }
-
             } else if (option == 6) {
                 System.out.println("System closed.");
                 scanner.close();
                 return;
             } else {
-                System.out.println("Invalid option!");
+                System.out.println("Invalid option.");
             }
+
         } while (true);
     }
 }

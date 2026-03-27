@@ -16,5 +16,23 @@ public class Main {
         for (int i = 0; i < users.size(); i++) {
             users.get(i).showSummary();
         }
+
+        String targetEmail = "maria@email.com";
+        SystemUser foundUser = null;
+
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).getEmail().equals(targetEmail)) {
+                foundUser = users.get(i);
+                break;
+            }
+        }
+
+        if (foundUser != null) {
+            System.out.println();
+            System.out.println("User found");
+            foundUser.showSummary();
+        } else {
+            System.out.println("User not found");
+        }
     }
 }

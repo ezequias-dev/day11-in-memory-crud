@@ -108,30 +108,57 @@ public class Day11Challenge {
 
                 System.out.println();
 
+                UserRecord changeStatus = null;
+                boolean foundUser = false;
+
                 for (UserRecord user : users) {
                     if (targetId == user.getId()) {
                         System.out.println("ID found!");
-
-                        System.out.print("Enter the new value for active: ");
-                        boolean newValue = scanner.nextBoolean();
-
-                        user.setActive(newValue);
-
-                        System.out.println();
-                        System.out.println("Status changed successfully.");
-                        System.out.println("================================");
-                    } else {
-                        System.out.println("ID not found!");
+                        foundUser = true;
+                        changeStatus = user;
+                        break;
                     }
+                }
+
+                if (foundUser) {
+                    System.out.print("Enter the new value for active: ");
+                    boolean newValue = scanner.nextBoolean();
+
+                    changeStatus.setActive(newValue);
+
+                    System.out.println();
+                    System.out.println("Status changed successfully.");
+                    System.out.println("================================");
+                } else {
+                    System.out.println("ID not found!");
                 }
             }
 
             if (option == 5) {
+                System.out.print("Enter an ID: ");
+                int targetId = scanner.nextInt();
 
+                System.out.println();
+
+                UserRecord userToRemove = null;
+
+                for (int i = 0; i < users.size(); i++) {
+                    if (targetId == users.get(i).getId()) {
+                        userToRemove = users.get(i);
+                    }
+                }
+
+                if (userToRemove != null) {
+                    users.remove(userToRemove);
+                } else {
+                    System.out.println("ID not found!");
+                }
             }
 
-        } while (option != 6);
-
-        scanner.close();
+            if (option == 6) {
+                scanner.close();
+                return;
+            }
+        } while (true);
     }
 }

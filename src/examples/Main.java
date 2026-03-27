@@ -34,5 +34,30 @@ public class Main {
         } else {
             System.out.println("User not found");
         }
+
+        int targetId = 2;
+        SystemUser userToRemove = null;
+
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).getId() == targetId) {
+                users.get(i).setActive(true);
+                userToRemove = users.get(i);
+            }
+        }
+
+        if (userToRemove != null) {
+            System.out.println();
+            System.out.println("Updated user:");
+            userToRemove.showSummary();
+
+            users.remove(userToRemove);
+            System.out.println("User removed successfully.");
+            System.out.println();
+        }
+
+        System.out.println("----- FINAL LIST -----");
+        for (SystemUser user : users) {
+            user.showSummary();
+        }
     }
 }

@@ -50,10 +50,10 @@ public class UserRecord {
     public void showUserSummary() {
         System.out.println(
             "Id: " + getId() +
-            " | Name: " + getFullName() +
-            " | Email: " + getEmail() +
-            " | Role: " + getRole() +
-            " | Active: " + isActive()
+                " | Name: " + getFullName() +
+                " | Email: " + getEmail() +
+                " | Role: " + getRole() +
+                " | Active: " + isActive()
         );
     }
 }

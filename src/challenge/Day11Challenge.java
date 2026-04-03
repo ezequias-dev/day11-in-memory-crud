@@ -73,7 +73,7 @@ public class Day11Challenge {
                     for (UserRecord user : users) {
                         user.showUserSummary();
 
-                        if(user.isValidUser()) {
+                        if (user.isValidUser()) {
                             validUsers++;
                         }
 
